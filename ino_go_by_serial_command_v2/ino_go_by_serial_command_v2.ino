@@ -65,9 +65,9 @@ void loop() {
 
     if (Serial.available()) {
       String str = Serial.readString();
-      str.trim();
+      //str.trim();
       Serial.println(str);
-      if (str == 'limit') {
+      if (str == "limit") {
         go_to_limit_switch();
         delay(1000);
       }
@@ -77,7 +77,6 @@ void loop() {
         run_cm(d);
       }
     }
-    
     
     /*
     // wait for the command from serial port
