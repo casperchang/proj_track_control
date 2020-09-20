@@ -45,12 +45,22 @@ void loop() {
   // first reset (limit switch)
   go_to_limit_switch();
   delay(1000);
+
+
+  while (true) {
+    if (Serial.available()) {
+      read_data = int(Serial.read() - '0');
+      go_forward(read_data);
+      delay(1000);
+    }
+  }
+
   
   // wait for the command from serial port
-  if (Serial.available()) {
-    read_data = Serial.read() - '0';
-    go_forward(read_data);
-    delay(1000);
-  }
+//  if (Serial.available()) {
+//    read_data = Serial.read() - '0';
+//    go_forward(read_data);
+//    delay(1000);
+//  }
 }
 
